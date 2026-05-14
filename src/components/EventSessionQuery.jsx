@@ -108,12 +108,12 @@ export default function EventSessionQuery({ eventname }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="my-8 rounded-[1.5rem] bg-gradient-to-br from-[#0f323f] via-[#135168] to-[#1d816f] p-[1px] shadow-[0_20px_70px_rgba(15,50,63,0.16)]"
+      className="my-8 rounded-[1.5rem] bg-gradient-to-br from-[#0077B6] via-[#00B4D8] to-[#1d816f] p-[1px] shadow-[0_20px_70px_rgba(15,50,63,0.16)]"
     >
       <div className="rounded-[calc(1.5rem-1px)] bg-white/95 p-6 backdrop-blur md:p-8">
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#0f323f]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#135168]">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#0077B6]/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#00B4D8]">
               Session Queries
             </div>
             <h3 className="text-2xl font-bold text-slate-900 md:text-3xl">
@@ -131,7 +131,7 @@ export default function EventSessionQuery({ eventname }) {
             <button
               type="button"
               onClick={() => setIsSessionQueryOpen((open) => !open)}
-              className="inline-flex items-center justify-center rounded-2xl bg-[#0f323f] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0f323f]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#135168]"
+              className="inline-flex items-center justify-center rounded-2xl bg-[#0077B6] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0077B6]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#00B4D8]"
             >
               {isSessionQueryOpen ? "Hide" : "Ask a Question"}
             </button>
@@ -220,7 +220,7 @@ export default function EventSessionQuery({ eventname }) {
                   <button
                     type="submit"
                     disabled={isSubmitting || isSessionQueryCooldownActive}
-                    className="inline-flex min-w-[12rem] items-center justify-center gap-2 rounded-2xl bg-[#0f323f] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0f323f]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#135168] disabled:cursor-not-allowed disabled:opacity-70"
+                    className="inline-flex min-w-[12rem] items-center justify-center gap-2 rounded-2xl bg-[#0077B6] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0077B6]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#00B4D8] disabled:cursor-not-allowed disabled:opacity-70"
                   >
                     {isSubmitting ? (
                       <>

@@ -1,18 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { galleryImages } from "../data/galleryImages";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Gallery() {
   const [selectedImg, setSelectedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
-
-  // Categorize images by size type
-  const sizedImages = galleryImages.map((img, i) => ({
-    ...img,
-    sizeType: i % 12 === 0 ? "large" : i % 5 === 0 ? "horizontal" : "small",
-  }));
 
   const openLightbox = (img, index) => {
     setSelectedImg(img);
@@ -27,20 +22,19 @@ export default function Gallery() {
 
   const goNext = (e) => {
     e?.stopPropagation();
-    const nextIndex = (currentIndex + 1) % sizedImages.length;
-    setSelectedImg(sizedImages[nextIndex]);
+    const nextIndex = (currentIndex + 1) % galleryImages.length;
+    setSelectedImg(galleryImages[nextIndex]);
     setCurrentIndex(nextIndex);
   };
 
   const goPrev = (e) => {
     e?.stopPropagation();
     const prevIndex =
-      (currentIndex - 1 + sizedImages.length) % sizedImages.length;
-    setSelectedImg(sizedImages[prevIndex]);
+      (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    setSelectedImg(galleryImages[prevIndex]);
     setCurrentIndex(prevIndex);
   };
 
-  // Touch event handlers for swipe gestures
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -63,7 +57,6 @@ export default function Gallery() {
     touchEndX.current = null;
   };
 
-  // Keyboard controls
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!selectedImg) return;
@@ -88,148 +81,116 @@ export default function Gallery() {
   }, [selectedImg, currentIndex]);
 
   return (
-    <div className="min-h-screen bg-gray-100 pt-24 pb-8">
-      <h1 className="text-3xl font-bold text-center mb-10 mt-3">Gallery</h1>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-coral-50 pt-32 pb-24 relative overflow-hidden">
+      {/* Decorative Blur Orbs for more color */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-teal-300/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-300/20 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-      {/* Grid with dense packing to eliminate gaps */}
-      <div className="flex justify-center px-2 sm:px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 auto-rows-[minmax(120px,auto)] max-w-6xl w-full grid-flow-dense">
-          {sizedImages.map((img, index) => (
+      <div className="container-custom relative z-10 text-center mb-16">
+        <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-coral-100 border border-coral-200 text-coral-700 text-xs font-semibold uppercase tracking-wider mb-6">
+          Memories
+        </div>
+        <h1 className="mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 to-indigo-600">
+          Our Gallery
+        </h1>
+        <p className="text-neutral-600 text-lg max-w-2xl mx-auto">
+          A visual journey through our events, hackathons, and community gatherings. 
+        </p>
+      </div>
+
+      {/* Masonry Layout Container */}
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 space-y-4">
+          {galleryImages.map((img, index) => (
             <motion.div
               key={index}
-              className={`relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all ${
-                img.sizeType === "large"
-                  ? "md:col-span-2 md:row-span-2"
-                  : img.sizeType === "horizontal"
-                  ? "md:col-span-2"
-                  : ""
-              }`}
-              whileHover={{ scale: 1.03 }}
+              className="break-inside-avoid rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300 relative border border-white"
+              whileHover={{ scale: 1.02 }}
               onClick={() => openLightbox(img, index)}
               layout
             >
               <img
                 src={img.src}
                 alt={`Gallery Image ${img.id}`}
-                className={`w-full h-full object-cover ${
-                  img.sizeType === "horizontal"
-                    ? "aspect-[16/9]"
-                    : img.sizeType === "large"
-                    ? "aspect-square"
-                    : "aspect-[4/3]"
-                }`}
+                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <span className="text-white font-medium text-sm drop-shadow-md">View Capture</span>
+              </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {selectedImg && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 backdrop-blur-sm bg-black bg-opacity-80 flex items-center justify-center z-50 p-2 sm:p-4"
-          onClick={closeLightbox}
-        >
-          {/* Lightbox Content */}
-          <div
-            className="relative w-full max-w-5xl h-[75vh] flex flex-col items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-neutral-950/90 backdrop-blur-xl flex items-center justify-center"
+            onClick={closeLightbox}
           >
-            {/* Close Button - Slightly Above Image */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-black bg-opacity-50 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-70 transition-all"
+              className="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-10 backdrop-blur-md"
               aria-label="Close gallery"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X size={24} />
             </button>
 
-            {/* Image */}
-            <motion.img
-              src={selectedImg.src}
-              alt="Selected Image"
-              className=" mx-auto cursor-default"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.2 }}
+            <div
+              className="relative w-full h-full flex items-center justify-center px-4 md:px-20"
               onClick={(e) => e.stopPropagation()}
-            />
-
-            {/* Bottom Navigation Controls */}
-            <div className="absolute bottom-0 transform -translate-y-[-100%] flex items-center gap-6">
-              {/* Previous Button */}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               <button
                 onClick={goPrev}
-                className="bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all"
+                className="hidden md:flex absolute left-8 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-all backdrop-blur-md"
                 aria-label="Previous image"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
+                <ChevronLeft size={32} />
               </button>
 
-              {/* Index Indicator */}
-              <div className="bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-sm">
-                {currentIndex + 1} / {sizedImages.length}
-              </div>
+              <motion.img
+                key={selectedImg.src}
+                src={selectedImg.src}
+                alt="Selected Image"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
 
-              {/* Next Button */}
               <button
                 onClick={goNext}
-                className="bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition-all"
+                className="hidden md:flex absolute right-8 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-4 rounded-full transition-all backdrop-blur-md"
                 aria-label="Next image"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                <ChevronRight size={32} />
               </button>
+
+              {/* Mobile controls & indicator */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+                <button onClick={goPrev} className="md:hidden text-white/70 hover:text-white">
+                  <ChevronLeft size={24} />
+                </button>
+                <span className="text-white font-medium tracking-wide text-sm">
+                  {currentIndex + 1} / {galleryImages.length}
+                </span>
+                <button onClick={goNext} className="md:hidden text-white/70 hover:text-white">
+                  <ChevronRight size={24} />
+                </button>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

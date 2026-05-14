@@ -49,7 +49,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="w-11/12 lg:w-9/12 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-16 bg-[#0f323f] mx-auto p-8 rounded-2xl">
+        <div className="w-11/12 lg:w-9/12 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-16 bg-[#0077B6] mx-auto p-8 rounded-2xl">
           <div className="text-center">
             <CountUp
               className="text-white text-5xl sm:text-7xl font-semibold"
@@ -135,67 +135,84 @@ export default function About() {
       </div>
 
       {/* About us */}
-      <div className="flex items-center flex-col pt-2 px-2">
-        <div
-          className="max-w-7xl px-4 py-4 mb-4 border border-white/40  rounded-2xl bg-[#0e303d]"
-        >
-          <h2 className="text-white text-3xl underline decoration-2 underline-offset-2">
-            About us
-          </h2>
-          <p className="text-base sm:text-lg text-white whitespace-pre-wrap lg:text-justify">
-            Welcome to our Data Science Club, the premier hub for data science
-            enthusiasts at our college. Established with the vision of driving
-            innovation and collaboration, our club serves as the central point
-            for all data science-related activities on campus. We provide
-            comprehensive guidance on projects, offer certifications for both
-            students and faculty, and keep our members informed about the
-            latest industry trends and real-world applications of data
-            science.
-          </p>
-          <p className="text-base sm:text-lg text-white whitespace-pre-wrap mt-1 lg:text-justify">
-            {"\t \t"}
-            Our club hosts a variety of events, including expert-led guest
-            lectures, hands-on workshops, and collaborative projects, ensuring
-            a dynamic and engaging learning environment. By fostering strong
-            connections with industry leaders, we bridge the gap between
-            academic knowledge and practical experience, preparing our members
-            to excel in the ever-evolving field of data science. Join us in
-            our mission to uphold the highest standards of academic and
-            technical integrity, and be part of a community dedicated to
-            shaping the future of data science.
-          </p>
+      <div className="flex flex-col items-center max-w-7xl mx-auto px-4 py-12 gap-8">
+        
+        {/* About Us Block */}
+        <div className="w-full p-8 lg:p-12 bg-white/60 backdrop-blur-xl border border-neutral-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[2.5rem]">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+              About Us
+            </h2>
+          </div>
+          
+          <div className="space-y-4 text-neutral-600 text-lg leading-relaxed">
+            <p>
+              Welcome to our Data Science Club, the premier hub for data science
+              enthusiasts at our college. Established with the vision of driving
+              innovation and collaboration, our club serves as the central point
+              for all data science-related activities on campus. We provide
+              comprehensive guidance on projects, offer certifications for both
+              students and faculty, and keep our members informed about the
+              latest industry trends and real-world applications of data science.
+            </p>
+            <p>
+              Our club hosts a variety of events, including expert-led guest
+              lectures, hands-on workshops, and collaborative projects, ensuring
+              a dynamic and engaging learning environment. By fostering strong
+              connections with industry leaders, we bridge the gap between
+              academic knowledge and practical experience, preparing our members
+              to excel in the ever-evolving field of data science. Join us in
+              our mission to uphold the highest standards of academic and
+              technical integrity, and be part of a community dedicated to
+              shaping the future of data science.
+            </p>
+          </div>
         </div>
 
-        <div className="flex flex-col max-w-7xl sm:flex-row gap-4 mb-6">
-          <div
-            className="w-full sm:w-1/2 p-4 rounded-xl border border-white/40 hover:backdrop-blur-sm bg-[#0e303d]"
-          >
-            <h2 className="text-white text-3xl underline decoration-2 underline-offset-1">
-              Vision
-            </h2>
-            <p className="text-base sm:text-lg text-white whitespace-pre-wrap lg:text-justify">
+        {/* Vision and Mission Blocks */}
+        <div className="flex flex-col sm:flex-row gap-8 w-full">
+          
+          {/* Vision Block */}
+          <div className="w-full sm:w-1/2 p-8 lg:p-10 bg-white border border-neutral-200/60 shadow-[0_4px_40px_rgb(0,0,0,0.03)] rounded-[2.5rem] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 to-indigo-400 opacity-80 group-hover:opacity-100 transition-opacity" />
+            
+            <div className="mb-6 flex items-center gap-3">
+              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-indigo-400">
+                Vision
+              </h2>
+            </div>
+            
+            <p className="text-neutral-600 text-lg leading-relaxed">
               To be the foremost hub for Data Science excellence, continually
               driving innovation and collaboration within our college
               community. We strive to create an environment where students and
               faculty can engage deeply with cutting-edge research and
               practical applications of Data Science. By fostering strong
               connections with industry leaders, we aim to bridge the gap
-              between academic knowledge and real-world practice.{"\n"} Our
+              between academic knowledge and real-world practice. Our
               vision includes being a leader in disseminating the latest
               trends and advancements in Data Science. Ultimately, we aspire
               to empower our members to be at the forefront of technological
               advancements and research in Data Science.
             </p>
-            <p>{"‎"}</p>
           </div>
-          <div
-            className="w-full sm:w-1/2 p-4 rounded-xl border  border-white/40 hover:backdrop-blur-sm bg-[#0e303d]"
 
-          >
-            <h2 className="text-white text-3xl underline decoration-2 nderline-offset-1">
-              Mission
-            </h2>
-            <p className="text-base sm:text-lg text-white whitespace-pre-wrap lg:text-justify">
+          {/* Mission Block */}
+          <div className="w-full sm:w-1/2 p-8 lg:p-10 bg-white border border-neutral-200/60 shadow-[0_4px_40px_rgb(0,0,0,0.03)] rounded-[2.5rem] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-teal-500 to-teal-400 opacity-80 group-hover:opacity-100 transition-opacity" />
+            
+            <div className="mb-6 flex items-center gap-3">
+              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-400">
+                Mission
+              </h2>
+            </div>
+            
+            <p className="text-neutral-600 text-lg leading-relaxed">
               Our mission is to sustain and expand a thriving Data Science
               community by offering comprehensive guidance on various projects
               and providing certifications for students and faculty. We are
@@ -203,7 +220,7 @@ export default function About() {
               the practical implications of data in the real world through
               regular workshops, seminars, and guest lectures. By promoting
               active participation and collaboration, we aim to foster a
-              culture of continuous learning and innovation.{"\n"} We ensure
+              culture of continuous learning and innovation. We ensure
               access to cutting-edge resources and tools that enable our
               members to excel in their data-driven endeavors. Our commitment
               is to uphold the highest standards of academic and technical
@@ -211,37 +228,54 @@ export default function About() {
               dynamic field of Data Science.
             </p>
           </div>
+          
         </div>
       </div>
 
       {/* Founders Block Component */}
       <div
-        className="max-w-7xl px-4 py-20 mx-auto mb-2 min-h-[calc(100vh-4.5rem)]"
+        className="max-w-7xl px-4 py-24 mx-auto mb-2 min-h-[calc(100vh-4.5rem)] relative"
         id="foundersBlock"
       >
-        <h2 className="text-4xl font-semibold">Founder of the club</h2>
-        <div className="flex flex-col lg:flex-row gap-4 py-8">
-          <div className="w-full lg:w-4/12 flex flex-col justify-start items-center gap-8">
-            <img
-              src="/teamImages/sravanthi.jpg"
-              className="w-[350px] h-auto !min-w-[200px] !min-h-[200px] rounded-[10%]"
-            />
-            <div>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-teal-500 inline-block">
+            Founder of the club
+          </h2>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 py-8 items-stretch">
+          {/* Image & Info Card */}
+          <div className="w-full lg:w-4/12 flex flex-col items-center gap-6 p-8 bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-[2.5rem]">
+            <div className="p-1 rounded-[2.5rem] bg-gradient-to-br from-indigo-400 to-teal-400 shadow-lg group">
+              <img
+                src="/teamImages/sravanthi.jpg"
+                className="w-full max-w-[280px] h-auto aspect-square object-cover rounded-[2.3rem] group-hover:scale-[0.98] transition-transform duration-500"
+                alt="Rayani Sravanthi"
+              />
+            </div>
+            <div className="text-center mt-2">
               <a
                 href="https://www.linkedin.com/in/sravanthi-rayani-535a01228/"
                 target="_blank"
+                rel="noreferrer"
+                className="block group"
               >
-                <p className="text-3xl text-black">Rayani Sravanthi</p>
+                <p className="text-2xl font-bold text-neutral-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-teal-500 transition-all duration-300">
+                  Rayani Sravanthi
+                </p>
               </a>
-              <p className="text-black text-xl mt-2">
+              <p className="text-indigo-600 font-medium text-lg mt-2">
                 Dept. of CSE-(CyS,DS) & AI&DS
               </p>
-              <p className="text-black text-lg"> Batch 2020-2024</p>
+              <div className="inline-block px-4 py-1 mt-3 bg-neutral-100 border border-neutral-200 rounded-full text-neutral-600 text-sm font-semibold tracking-wide">
+                Batch 2020-2024
+              </div>
             </div>
           </div>
 
-
-          <div className="lg:w-8/12 p-4 h-[500px]  border border-black/20 rounded-lg  overflow-y-scroll overflow-x-hidden small-scrollbar">
+          {/* Message Card */}
+          <div className="lg:w-8/12 p-8 lg:p-10 h-[550px] bg-white border border-neutral-200/60 shadow-[0_4px_40px_rgb(0,0,0,0.04)] rounded-[2.5rem] overflow-y-scroll overflow-x-hidden small-scrollbar relative">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 via-teal-400 to-coral-400 rounded-t-[2.5rem]" />
             <p className="text-black text-base sm:text-lg whitespace-pre-wrap text-justify">
               One of the most difficult yet rewarding experiences of my life was
               founding a club while I was in college. As a sophomore who was
@@ -298,6 +332,38 @@ export default function About() {
               in leadership, teamwork, and the profound impact of collective
               action.
             </p>
+          </div>
+        </div>
+
+        {/* Dr. M. Raja Sekar Block */}
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 py-8 mt-8 items-stretch">
+          {/* Image & Info Card */}
+          <div className="w-full lg:w-4/12 flex flex-col items-center gap-6 p-8 bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-[2.5rem]">
+            <div className="p-1 rounded-[2.5rem] bg-gradient-to-br from-indigo-400 to-teal-400 shadow-lg group">
+              <img
+                src="/teamImages/raja.png"
+                className="w-full max-w-[280px] h-auto aspect-square object-cover rounded-[2.3rem] group-hover:scale-[0.98] transition-transform duration-500 bg-white"
+                alt="Dr. M. Raja Sekar"
+              />
+            </div>
+            <div className="text-center mt-2 group">
+              <p className="text-2xl font-bold text-neutral-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-teal-500 transition-all duration-300">
+                Dr. M. Raja Sekar
+              </p>
+              <p className="text-indigo-600 font-medium text-lg mt-2">
+                Professor, Dept of CSE-CyS, DS and AI&DS
+              </p>
+            </div>
+          </div>
+
+          {/* Message Card */}
+          <div className="lg:w-8/12 p-8 lg:p-10 bg-white border border-neutral-200/60 shadow-[0_4px_40px_rgb(0,0,0,0.04)] rounded-[2.5rem] relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 via-indigo-500 to-coral-400" />
+            <div className="h-full flex items-center">
+              <p className="text-black text-base sm:text-lg text-justify italic">
+                "VJ DATA QUESTERS has been instrumental in fostering a culture of data science excellence within our college. The club's commitment to providing a platform for students and faculty to engage with cutting-edge data science technologies is commendable. I am proud of the club's achievements and look forward to its continued success in the future."
+              </p>
+            </div>
           </div>
         </div>
       </div>

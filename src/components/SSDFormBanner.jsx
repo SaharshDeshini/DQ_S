@@ -43,7 +43,7 @@ const SSDFormBanner = () => {
       className="text-white text-center w-full flex flex-col justify-center items-center h-full rounded-l-lg relative overflow-hidden py-6 px-6"
       style={{
         background:
-          "radial-gradient(ellipse at 20% 50%, #135168 0%, #0f323f 40%, #0a1f2e 100%)",
+          "radial-gradient(ellipse at 20% 50%, #00B4D8 0%, #0077B6 40%, #0a1f2e 100%)",
       }}
       initial={{ opacity: 0, x: -50 }}
       animate={{ opacity: 1, x: 0 }}

@@ -3,20 +3,15 @@ const testimonials = [
     name: "Dr. T. Sunil Kumar",
     role: "Head Of Department",
     image: "teamImages/hod.png",
+    linkedin: "https://www.linkedin.com/in/sunil-kumar-517a8715/",
     statement:
       "I am immensely proud of VJ DATA QUESTERS, our premier data science club that has established itself as the central hub for all data science activities at our college. This club exemplifies excellence in fostering innovation, collaboration, and continuous learning. Through comprehensive guidance on projects, certifications for both students and faculty, and insightful guest lectures and workshops, VJ DATA QUESTERS has successfully bridged the gap between academic knowledge and real-world industry practices.",
-  },
-  {
-    name: "Dr.M.Raja Sekar",
-    role: "Professor, Dept of CSE-CyS, DS and AI&DS",
-    image: "teamImages/raja.png",
-    statement:
-      "VJ DATA QUESTERS has been instrumental in fostering a culture of data science excellence within our college. The club's commitment to providing a platform for students and faculty to engage with cutting-edge data science technologies is commendable. I am proud of the club's achievements and look forward to its continued success in the future.",
   },
   {
     name: "Dr. N. Sunanda",
     role: "Coordinator",
     image: "teamImages/sunanda.png",
+    linkedin: "https://www.linkedin.com/in/sunandapratap/",
     statement:
       "VJ DATA QUESTERS has become a cornerstone of our college's data science ecosystem, driving technical excellence and fostering a culture of innovation. As a faculty coordinator, I have witnessed firsthand the transformative impact of this club on our students and faculty. The club's comprehensive approach to project guidance, coupled with its robust certification programs, equips our members with the skills and knowledge necessary to tackle complex data-driven challenges.",
   },
@@ -24,6 +19,7 @@ const testimonials = [
     name: "Mr. P. veeranjaneyulu",
     role: "Coordinator",
     image: "teamImages/veeru.png",
+    linkedin: "https://www.linkedin.com/in/veeru-pagadala-b4ba6238/",
     statement:
       "VJ DATA QUESTERS has set a high standard for data science engagement within our college. As a faculty coordinator, I am continually impressed by the club’s ability to blend academic rigor with practical industry insights. The club offers a structured pathway for students and faculty to deepen their expertise in data science through meticulously designed projects and certifications.\n",
   },

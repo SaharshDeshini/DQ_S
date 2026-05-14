@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { motion } from "framer-motion";
 
 import router from "./pages";
 
@@ -68,7 +69,12 @@ function App() {
       />
       <DynamicComponent Component={Header} blacklist={headerBlacklist} />
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-blue-50/70">
+      <motion.div 
+        className="flex flex-col min-h-screen bg-blue-50/70"
+        initial={{ opacity: 0, filter: "blur(10px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 1.5, delay: 2.2, ease: "easeOut" }}
+      >
         <Routes>
           {router.map((route, index) => (
             <Route
@@ -78,7 +84,7 @@ function App() {
             />
           ))}
         </Routes>
-      </div>
+      </motion.div>
       <DynamicComponent Component={PromoSection} blacklist={promoBlacklist} />
       <DynamicComponent Component={Footer} blacklist={headerBlacklist} />
     </Router>

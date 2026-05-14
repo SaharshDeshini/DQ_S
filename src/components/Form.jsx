@@ -295,7 +295,7 @@ const FormComp = ({ setLoadingStatus, setSubmitStatus, formStatus }) => {
         <div className="mt-3 flex justify-center">
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 bg-gradient-to-r px-5 bg-[#0f323fee] hover:bg-[#135168] md:from-blue-900 md:to-teal-400 text-white font-semibold py-2 rounded-full shadow hover:opacity-90"
+            className="flex items-center justify-center gap-2 bg-gradient-to-r px-5 bg-[#0077B6ee] hover:bg-[#00B4D8] md:from-blue-900 md:to-teal-400 text-white font-semibold py-2 rounded-full shadow hover:opacity-90"
           >
             <span>Submit</span>
             <Send size={16} />
@@ -336,7 +336,7 @@ const SubmittedComp = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="mt-6 px-6 py-2 font-semibold rounded-full shadow-md bg-gradient-to-r bg-[#0f323fee] hover:bg-[#135168] text-white"
+        className="mt-6 px-6 py-2 font-semibold rounded-full shadow-md bg-gradient-to-r bg-[#0077B6ee] hover:bg-[#00B4D8] text-white"
         onClick={() => navigate("/events")}
       >
         Back to Events

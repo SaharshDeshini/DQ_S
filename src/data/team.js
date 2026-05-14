@@ -17,7 +17,7 @@ export const faculty = [
     name: "Mrs. D. Jothsna",
     role: "Coordinator",
     image: "faculty3.png",
-    // linkedin: "https://www.linkedin.com/in/veeru-pagadala-b4ba6238/",
+    linkedin: "https://www.linkedin.com/in/veeru-pagadala-b4ba6238/",
     bio: "As a faculty coordinator, it brings me great joy to be part of a student-driven initiative that constantly inspires creativity, innovation, and teamwork. I see this club as a vibrant learning environment where students challenge themselves, take ownership of their ideas, and transform concepts into action. My focus is to provide guidance, encourage critical thinking, and help create opportunities that nurture both technical and interpersonal skills. Supporting these young minds in their journey beyond the classroom is both a privilege and a responsibility I deeply value. Together, we continue to build a culture of learning, leadership, and lasting impact.",
   },
 ];

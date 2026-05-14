@@ -128,8 +128,8 @@ function McqExam({ roll, onComplete }) {
   if (phase === "idle" || phase === "starting") {
     return (
       <div className="flex flex-col items-center gap-6 py-6 text-center">
-        <div className="rounded-full bg-[#0f323f]/8 p-5">
-          <Timer size={32} className="text-[#135168]" />
+        <div className="rounded-full bg-[#0077B6]/8 p-5">
+          <Timer size={32} className="text-[#00B4D8]" />
         </div>
         <div className="space-y-1">
           <h4 className="text-lg font-bold text-slate-900">Ready to begin?</h4>
@@ -148,7 +148,7 @@ function McqExam({ roll, onComplete }) {
         <button
           onClick={handleStart}
           disabled={phase === "starting"}
-          className="inline-flex items-center gap-2 rounded-2xl bg-[#0f323f] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0f323f]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#135168] disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex items-center gap-2 rounded-2xl bg-[#0077B6] px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0077B6]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#00B4D8] disabled:cursor-not-allowed disabled:opacity-70"
         >
           {phase === "starting" ? (
             <>
@@ -185,7 +185,7 @@ function McqExam({ roll, onComplete }) {
         {questions.map((q, i) => (
           <div key={i} className="space-y-4">
             <div className="flex items-start gap-3">
-              <span className="text-xs font-bold text-[#135168] uppercase tracking-widest shrink-0 mt-0.5">
+              <span className="text-xs font-bold text-[#00B4D8] uppercase tracking-widest shrink-0 mt-0.5">
                 Q{i + 1}.
               </span>
               <p className="text-base font-semibold text-slate-900 leading-snug">
@@ -454,10 +454,10 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
               }}
               className={`flex flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed px-6 py-10 cursor-pointer transition-colors duration-200 ${
                 isDragging
-                  ? "border-[#135168] bg-[#135168]/10"
+                  ? "border-[#00B4D8] bg-[#00B4D8]/10"
                   : imageFile
                     ? "border-[#1d816f] bg-[#1d816f]/5"
-                    : "border-slate-200 hover:border-[#135168] bg-slate-50"
+                    : "border-slate-200 hover:border-[#00B4D8] bg-slate-50"
               }`}
             >
               <ImageIcon size={32} className="text-slate-400" />
@@ -497,7 +497,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
             <button
               type="submit"
               disabled={isUploading || !imageFile}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0f323f] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0f323f]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#135168] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0077B6] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0077B6]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#00B4D8] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isUploading ? (
                 <>
@@ -521,8 +521,8 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
     if (submissionStatus === "processing") {
       return (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div className="rounded-full bg-[#0f323f]/8 p-4">
-            <Clock size={28} className="text-[#135168] animate-pulse" />
+          <div className="rounded-full bg-[#0077B6]/8 p-4">
+            <Clock size={28} className="text-[#00B4D8] animate-pulse" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-1">
@@ -542,8 +542,8 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
     if (submissionStatus === "pending") {
       return (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div className="rounded-full bg-[#0f323f]/8 p-4">
-            <Clock size={28} className="text-[#135168] animate-pulse" />
+          <div className="rounded-full bg-[#0077B6]/8 p-4">
+            <Clock size={28} className="text-[#00B4D8] animate-pulse" />
           </div>
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-1">
@@ -567,7 +567,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
       return (
         <>
           <div className="mb-6">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#135168] mb-1">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#00B4D8] mb-1">
               MCQ Round
             </p>
             <h3 className="text-2xl font-bold text-slate-900">
@@ -589,7 +589,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
     if (submissionStatus === "test-submitted") {
       return (
         <div className="flex flex-col items-center justify-center gap-4 py-8 text-center">
-          <div className="rounded-full bg-[#0f323f]/8 p-4">
+          <div className="rounded-full bg-[#0077B6]/8 p-4">
             <CheckCircle2 size={28} className="text-[#1d816f]" />
           </div>
           <div>
@@ -706,7 +706,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="rounded-[1.5rem] bg-gradient-to-br from-[#0f323f] via-[#135168] to-[#1d816f] p-[1px] shadow-[0_20px_70px_rgba(15,50,63,0.16)]"
+        className="rounded-[1.5rem] bg-gradient-to-br from-[#0077B6] via-[#00B4D8] to-[#1d816f] p-[1px] shadow-[0_20px_70px_rgba(15,50,63,0.16)]"
       >
         <div className="rounded-[calc(1.5rem-1px)] bg-white/95 p-6 backdrop-blur md:p-8">
           <p className="text-slate-600 mb-6">
@@ -728,7 +728,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
             <button
               type="submit"
               disabled={isLoading}
-              className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-2xl bg-[#0f323f] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0f323f]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#135168] disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex min-w-[10rem] items-center justify-center gap-2 rounded-2xl bg-[#0077B6] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0077B6]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#00B4D8] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isLoading ? (
                 <>
@@ -757,7 +757,7 @@ export default function SubmissionsPanel({ initialRoll = "" }) {
                 className="mt-6 border-t border-slate-200/80 pt-6 space-y-5"
               >
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#135168] mb-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#00B4D8] mb-1">
                     PS {problem.ps}
                   </p>
                   <h4 className="text-xl font-bold text-slate-900">

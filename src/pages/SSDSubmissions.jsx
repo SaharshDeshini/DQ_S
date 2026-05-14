@@ -11,7 +11,7 @@ export default function SSDSubmissions() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#135168] mb-1">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#00B4D8] mb-1">
               Summer System Design
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">

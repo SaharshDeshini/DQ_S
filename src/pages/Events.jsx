@@ -1,67 +1,55 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../clip-art.css";
 import { useSearchParams } from "react-router-dom";
 import events from "../data/events.js";
 import Reveal from "../components/Reveal.jsx";
 
 const EventCard = ({ event }) => {
   const navigate = useNavigate();
-  const colors = [
-    "bg-gray-900",
-    "bg-indigo-600",
-    "bg-blue-800",
-    "bg-emerald-600",
-    "bg-violet-700",
-    "bg-sky-600",
-    "bg-slate-700",
-    "bg-teal-600",
-    "bg-purple-600",
-    "bg-cyan-600",
-    "bg-rose-600",
-    "bg-green-700",
-    "bg-amber-600",
-    "bg-pink-600",
-    "bg-orange-600",
-    "bg-lime-600",
-  ];
+
   return (
     <div
-      className="max-w-[400px] rounded-lg h-full shadow-2xl bg-gray-100 hover:shadow-[0px_25px_50px_-12px] transition-all duration-500 hover:backdrop-blur-sm hover:bg-gray-200 cursor-pointer"
+      className="card-premium h-full flex flex-col group cursor-pointer overflow-hidden"
       onClick={() => {
         if (event.link.startsWith("http")) {
-          window.open(event.link, "_blank"); // or use window.location.href
+          window.open(event.link, "_blank");
         } else {
-          navigate(event.link); // for internal routes
+          navigate(event.link);
         }
       }}
     >
-      <img
-        src={event.image}
-        style={{ maxWidth: "100%" }}
-        alt={event.name}
-        draggable={false}
-        className="w-full rounded-t-lg h-64"
-      />
+      <div className="w-full h-48 overflow-hidden relative">
+        <img
+          src={event.image}
+          alt={event.name}
+          draggable={false}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors" />
+      </div>
 
-      <div className="p-1 md:p-2 pt-0">
-        <div className="w-full flex flex-row gap-2 my-2 overflow-x-auto small-scrollbar-y">
-          {event.event_tags.map((obj, index) => (
-            <div
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {event.event_tags.map((tag, index) => (
+            <span
               key={index}
-              className={`inline-block  ${
-                obj === "Limited Registrations"
-                  ? "bg-red-800"
-                  : colors[Math.floor(Math.random() * colors.length)]
-              }  text-white text-sm rounded-xl text-nowrap text-center content-center py-[2px] px-2 mb-2`}
+              className={`text-xs font-semibold px-2 py-1 rounded-md ${
+                tag === "Limited Registrations"
+                  ? "bg-coral-50 text-coral-600 border border-coral-200"
+                  : "bg-teal-50 text-teal-700 border border-teal-100"
+              }`}
             >
-              <p className="text-sm">{obj}</p>
-            </div>
+              {tag}
+            </span>
           ))}
         </div>
-        <h2 className="text-2xl font-semibold mb-2 ">{event.name}</h2>
-        <p className="text-gray-700 font-light">{event.date}</p>
-        <p className="text-lg mt-2">{event.description}</p>
+        <h3 className="text-xl font-bold text-neutral-950 mb-2 group-hover:text-indigo-600 transition-colors line-clamp-2">
+          {event.name}
+        </h3>
+        <p className="text-sm font-medium text-indigo-600 mb-3">{event.date}</p>
+        <p className="text-neutral-500 text-sm leading-relaxed line-clamp-3">
+          {event.description}
+        </p>
       </div>
     </div>
   );
@@ -89,79 +77,82 @@ export default function Events() {
   };
 
   return (
-    <>
-      {/*Event highlights*/}
-      <section className="clip-art-1 bg-gradient-to-b from-[#0f323f] via-[#0f323f] to-[#0f323f]/85 min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] flex items-center justify-center px-4 sm:px-6 md:px-8">
-        <div className="w-full pt-10 md:pt-0 md:w-2/3 pb-5">
-          <h1 className="text-4xl sm:text-5xl pb-4 sm:pb-4 md:text-6xl md:pb-3 font-bold text-white">
-            Discover Amazing Events we Organized
-          </h1>
-          <p className="text-sm text-white sm:block sm:text-lg md:pb-none pr-3">
-            Explore the diverse range of events we've hosted, designed to
-            inspire, educate, and bring our community together
-          </p>
+    <div className="bg-transparent min-h-screen pt-32 pb-24">
+      {/* Event highlights */}
+      <section className="container-custom mb-20 text-center max-w-3xl mx-auto">
+        <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-semibold uppercase tracking-wider mb-6">
+          Our Initiatives
         </div>
+        <h1 className="mb-6">
+          Discover Amazing Events we Organized
+        </h1>
+        <p className="text-neutral-500 text-lg">
+          Explore the diverse range of events we've hosted, designed to inspire, educate, and bring our community together.
+        </p>
       </section>
-      {/* Display by year */}
-      <div className="max-w-5xl md:max-w-[90%] h-full mb-20 my-4 mx-auto px-4">
-        <div className="w-full">
-          <div className="pt-6">
-            {/* Upcoming events */}
-            {events.upcoming.length !== 0 && (
-              <>
-                <h2 className="text-4xl text-center font-bold mb-7 ">
-                  Upcoming Events
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
-                  {events.upcoming.map((event, index) => (
-                    <Reveal key={index}>
-                      <EventCard event={event} />
-                    </Reveal>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
 
-          <div className="flex flex-col flex-wrap gap-5">
-            <h2 className="text-4xl text-center font-bold">Our Events</h2>
-            <div className="flex flex-row flex-wrap justify-center gap-3">
-              {Object.keys(events.past).map((eventyear) => (
-                <button
-                  key={eventyear}
-                  className={`px-5 py-1.5 font-bold text-base border-2 border-black text-black shadow-[4px_4px_0px_0px] hover:shadow-none transition-all rounded-md ${
-                    year.toString() === eventyear.slice(1)
-                      ? "bg-[#0f323f] text-white"
-                      : "bg-white"
-                  }`}
-                  onClick={() => handleYearChange(eventyear)}
-                >
-                  {eventyear.slice(1)}
-                </button>
-              ))}
+      {/* Display by year */}
+      <div className="container-custom">
+        <div className="w-full">
+          {/* Upcoming events */}
+          {events.upcoming.length !== 0 && (
+            <div className="mb-20">
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="text-2xl md:text-3xl m-0">Upcoming Events</h2>
+                <div className="h-px bg-neutral-200 flex-grow" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {events.upcoming.map((event, index) => (
+                  <Reveal key={index}>
+                    <EventCard event={event} />
+                  </Reveal>
+                ))}
+              </div>
             </div>
+          )}
+
+          {/* Past Events Section */}
+          <div className="flex flex-col gap-8">
+            <div className="flex items-center gap-4 mb-2">
+                <h2 className="text-2xl md:text-3xl m-0">Past Archives</h2>
+                <div className="h-px bg-neutral-200 flex-grow" />
+            </div>
+            
+            <div className="flex flex-wrap gap-3">
+              {Object.keys(events.past).map((eventyear) => {
+                const isActive = year.toString() === eventyear.slice(1);
+                return (
+                  <button
+                    key={eventyear}
+                    className={`px-5 py-2 font-semibold text-sm rounded-full transition-all border ${
+                      isActive
+                        ? "bg-neutral-950 text-white border-neutral-950 shadow-md"
+                        : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50"
+                    }`}
+                    onClick={() => handleYearChange(eventyear)}
+                  >
+                    {eventyear.slice(1)}
+                  </button>
+                );
+              })}
+            </div>
+
             {Object.keys(pastevents).length === 0 ? (
-              <p>No events in year {year}</p>
+              <div className="card-premium p-12 text-center">
+                 <p className="text-neutral-500 font-medium">No events found for the year {year}.</p>
+              </div>
             ) : (
-              <>
-                {/* Past events */}
-                <h2 className="text-2xl">Events of year {year}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
-                  {pastevents.map((event, index) => (
-                    <Reveal key={index}>
-                      <EventCard event={event} />
-                    </Reveal>
-                  ))}
-                </div>
-              </>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {pastevents.map((event, index) => (
+                  <Reveal key={index}>
+                    <EventCard event={event} />
+                  </Reveal>
+                ))}
+              </div>
             )}
           </div>
         </div>
       </div>
-      {/* category section */}
-      {/* <div className="max-w-5xl md:max-w-[90%] h-full mb-20 my-4 mx-auto px-4 border border-black">
-        <h1></h1>
-      </div> */}
-    </>
+    </div>
   );
 }

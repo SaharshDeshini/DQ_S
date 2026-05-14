@@ -11,7 +11,7 @@ export default function EventSubmissions() {
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className="w-full flex items-center justify-between rounded-2xl bg-gradient-to-r from-[#0f323f] to-[#135168] px-6 py-4 text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+        className="w-full flex items-center justify-between rounded-2xl bg-gradient-to-r from-[#0077B6] to-[#00B4D8] px-6 py-4 text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
       >
         <div className="text-left">
           <p className="text-xs font-semibold uppercase tracking-widest opacity-70 mb-0.5">

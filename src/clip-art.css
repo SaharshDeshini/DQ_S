@@ -1,5 +1,5 @@
 .clip-art-1 {
-    background: linear-gradient(180deg, #135168 10%, #0f323f 100%);
+    background: linear-gradient(180deg, #00B4D8 10%, #0077B6 100%);
     clip-path: polygon(100% 0%,
             0% 0%,
             0% 95.53%,
@@ -162,7 +162,7 @@
 }
 
 .clip-art-combined {
-    background: linear-gradient(180deg, #135168 10%, #0f323f 100%);
+    background: linear-gradient(180deg, #00B4D8 10%, #0077B6 100%);
     clip-path: polygon(100% 92.47%,
             98.67% 92.9%,
             97.33% 93.34%,

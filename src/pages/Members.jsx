@@ -57,7 +57,7 @@ export default function Members() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0f323f] mb-4 font-[Bricolage Grotesque]">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0077B6] mb-4 font-[Bricolage Grotesque]">
             Member Lookup
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function Members() {
                   onChange={(e) => setMemberId(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="e.g., VJDQ2K25049"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#0f323f] focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#0077B6] focus:border-transparent transition-all"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               </div>
@@ -88,7 +88,7 @@ export default function Members() {
             <button
               onClick={handleSearch}
               disabled={loading}
-              className="w-full md:w-auto px-8 py-3 bg-[#0f323f] text-white font-medium rounded-lg hover:bg-[#135168] transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-[#0f323f] disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full md:w-auto px-8 py-3 bg-[#0077B6] text-white font-medium rounded-lg hover:bg-[#00B4D8] transition-colors focus:ring-2 focus:ring-offset-2 focus:ring-[#0077B6] disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? "Searching..." : "Search"}
             </button>
@@ -152,7 +152,7 @@ export default function Members() {
             transition={{ duration: 0.3 }}
             className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
           >
-            <div className="bg-[#0f323f] px-8 py-6 flex items-center justify-between">
+            <div className="bg-[#0077B6] px-8 py-6 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-white/10 rounded-full">
                   <User className="w-8 h-8 text-white" />

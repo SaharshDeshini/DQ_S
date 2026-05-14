@@ -245,9 +245,9 @@ const FormComp = ({
     >
       <div className="flex flex-col justify-center">
         <div className="flex items-center gap-2">
-          <Network size={22} className="text-[#135168]" />
+          <Network size={22} className="text-[#00B4D8]" />
           <h1 className="text-2xl md:text-2xl font-bold text-gray-900">
-            Summer <span className="text-[#135168]">System Design</span>
+            Summer <span className="text-[#00B4D8]">System Design</span>
           </h1>
         </div>
         <p className="text-sm text-gray-500 mt-1">
@@ -262,7 +262,7 @@ const FormComp = ({
           <input
             {...register("name", { required: "Name is required" })}
             placeholder="Full Name"
-            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all"
+            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all"
           />
           {errors.name && (
             <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -286,7 +286,7 @@ const FormComp = ({
                   if (val.length === 11) handleLookup(val);
                   else { memberDetectedRef.current = false; setMemberDetected(false); }
                 }}
-                className="border border-gray-300 p-2.5 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all"
+                className="border border-gray-300 p-2.5 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all"
               />
             </div>
             {errors.rollno && (
@@ -389,7 +389,7 @@ const FormComp = ({
               },
             })}
             placeholder="your.email@example.com"
-            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all"
+            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all"
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -411,7 +411,7 @@ const FormComp = ({
             })}
             type="tel"
             placeholder="10-digit phone number"
-            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all"
+            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all"
           />
           {errors.phno && (
             <p className="text-red-500 text-sm mt-1">{errors.phno.message}</p>
@@ -443,11 +443,11 @@ const FormComp = ({
             }}
             type="file"
             accept="image/*"
-            className="border border-gray-300 p-2 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[#0f323f] file:text-white hover:file:bg-[#135168] file:cursor-pointer"
+            className="border border-gray-300 p-2 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-[#0077B6] file:text-white hover:file:bg-[#00B4D8] file:cursor-pointer"
           />
           {uploadState === "uploading" && (
-            <p className="text-[#135168] text-sm mt-1 flex items-center gap-1.5">
-              <span className="inline-block w-3.5 h-3.5 border-2 border-[#135168] border-t-transparent rounded-full animate-spin" />
+            <p className="text-[#00B4D8] text-sm mt-1 flex items-center gap-1.5">
+              <span className="inline-block w-3.5 h-3.5 border-2 border-[#00B4D8] border-t-transparent rounded-full animate-spin" />
               Uploading...
             </p>
           )}
@@ -508,7 +508,7 @@ const FormComp = ({
                 memberDetectedRef.current || !!val || "Transaction ID is required",
             })}
             placeholder="Transaction ID"
-            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#135168] focus:border-transparent transition-all"
+            className="border border-gray-300 p-2.5 w-full rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-[#00B4D8] focus:border-transparent transition-all"
           />
           {errors.transactionid && (
             <p className="text-red-500 text-sm mt-1">
@@ -531,7 +531,7 @@ const FormComp = ({
             type="submit"
             ref={registerButtonRef}
             disabled={uploadState === "uploading"}
-            className="flex items-center justify-center gap-2 bg-gradient-to-r px-8 bg-[#0f323fee] hover:bg-[#135168] md:from-blue-900 md:to-teal-400 text-white font-semibold py-2.5 rounded-full shadow-lg hover:shadow-xl hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center justify-center gap-2 bg-gradient-to-r px-8 bg-[#0077B6ee] hover:bg-[#00B4D8] md:from-blue-900 md:to-teal-400 text-white font-semibold py-2.5 rounded-full shadow-lg hover:shadow-xl hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span>Register Now</span>
             <Send size={16} />
@@ -584,7 +584,7 @@ const SubmittedComp = ({ submitStatus }) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-6 px-6 py-2 font-semibold rounded-full shadow-md bg-gradient-to-r bg-[#0f323fee] hover:bg-[#135168] text-white"
+          className="mt-6 px-6 py-2 font-semibold rounded-full shadow-md bg-gradient-to-r bg-[#0077B6ee] hover:bg-[#00B4D8] text-white"
           onClick={() => (window.top.location.href = "/events")}
         >
           Back to Events
